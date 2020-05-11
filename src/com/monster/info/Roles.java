@@ -10,32 +10,33 @@ public class Roles {
     public Roles(String roleNumber) {
         // high attack, moderate health 
         if (roleNumber.equals("1")) {
-            System.out.println("in 1");
             mRoleName = "Swordmaster";
             mHealth = 2;
             mStrength = 3;
             mShield = 1;
         // high attack, low health, uses magic
         } else if (roleNumber.equals("2")) {
-            System.out.println("in 2");
             mRoleName = "Mage";
             mHealth = 1;
             mStrength = 3;
             mShield = 2;
         // high health, low attack, heal regen round
         } else if (roleNumber.equals("3")) {
-            System.out.println("in 3");
             mRoleName = "Shieldsman";
             mHealth = 3;
             mStrength = 1;
             mShield = 3;
         //  moderate attack, moderate health, counterattack if dodge attack
         } else if (roleNumber.equals("4")) {
-            System.out.println("in 4");
             mRoleName = "Ninja";
             mHealth = 2;
             mStrength = 2;
             mShield = 0;
+        } else if (roleNumber.equals("a")) {
+            mRoleName = "Admin";
+            mHealth = 999;
+            mStrength = 999;
+            mShield = 999;
         }
     }
 

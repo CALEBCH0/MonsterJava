@@ -7,6 +7,14 @@ public class Util {
         for (int i = 0; i < words.length; i++) {
             content = content + words[i].toString() + " ";
         }
+        System.out.print(content);
+    }
+
+    public static void println(Object... words) {
+        String content = "";
+        for (int i = 0; i < words.length; i++) {
+            content = content + words[i].toString() + " ";
+        }
         System.out.println(content);
     }
 

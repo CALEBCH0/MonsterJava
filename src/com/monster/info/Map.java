@@ -12,7 +12,7 @@ public class Map {
     
     public void move() {
         printMap();
-        Util.print("Which door would you like to go? (r/l)");
+        Util.println("Which door would you like to go? (r/l)");
         String door = mScanner.nextLine();
 
         if (door.equals("r")) {
@@ -33,14 +33,14 @@ public class Map {
     // Currently it is two doors
     public void printMap() {
         String overbar = new String(new int[] { 0x1F601 }, 0, 1);
-        Util.print("                             "+overbar);
-        Util.print(" |‾‾‾‾‾‾‾‾‾|     |‾‾‾‾‾‾‾‾‾| ");
-        Util.print(" |^^^^^^^^^|     |   [-]   | ");
-        Util.print(" |^  {=}  ^|     |[-][-][-]| ");
-        Util.print(" |^^^^^^^^^|     |   [-]   | ");
-        Util.print(" |_________|     |_________| ");
-        Util.print("                             ");
-        Util.print(" <----------     ----------> ");
+        Util.println("                             "+overbar);
+        Util.println(" |‾‾‾‾‾‾‾‾‾|     |‾‾‾‾‾‾‾‾‾| ");
+        Util.println(" |^^^^^^^^^|     |   [-]   | ");
+        Util.println(" |^  {=}  ^|     |[-][-][-]| ");
+        Util.println(" |^^^^^^^^^|     |   [-]   | ");
+        Util.println(" |_________|     |_________| ");
+        Util.println("                             ");
+        Util.println(" <----------     ----------> ");
     }
 
     public Vector<Integer> getPosition() {

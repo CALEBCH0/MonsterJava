@@ -73,7 +73,7 @@ public class MonsterInfo {
     }
 
     public void statusMonster() {
-        Util.print(mName, "health:", getHealth(), "strength:", getStrength());
+        Util.println(mName, "health:", getHealth(), "strength:", getStrength());
     }
 
     public int getHealth() {
@@ -85,8 +85,8 @@ public class MonsterInfo {
     }
 
     public void encounter() {
-        Util.print("--------------------");
-        Util.print("You encountered:", mName, "<"+mMonsterKind+">", "!");
+        Util.println("--------------------");
+        Util.println("You encountered:", mName, "<"+mMonsterKind+">", "!");
     }
 
     public String namePicker() {
@@ -144,37 +144,37 @@ public class MonsterInfo {
     }
 
     public void printSlime(){
-        Util.print( "   O       _____ ");
-        Util.print( " / | \\    ( * * )");
-        Util.print( "  / \\      TTTTT ");
+        Util.println( "   O       _____ ");
+        Util.println( " / | \\    ( * * )");
+        Util.println( "  / \\      TTTTT ");
     }
 
     public void printSpider(){
-        Util.print( "   O         ");
-        Util.print( " / | \\    /\\_____/\\ ");
-        Util.print( "  / \\    / ( * * ) \\");
+        Util.println( "   O         ");
+        Util.println( " / | \\    /\\_____/\\ ");
+        Util.println( "  / \\    / ( * * ) \\");
     }
 
     public void printOrc(){
-        Util.print( "");
-        Util.print( "   O       (**)   ");
-        Util.print( " / | \\    /|__|\\ ");
-        Util.print( "  / \\      /  \\  ");
+        Util.println( "");
+        Util.println( "   O       (**)   ");
+        Util.println( " / | \\    /|__|\\ ");
+        Util.println( "  / \\      /  \\  ");
     }
 
     public void printOgre(){
-        Util.print( "           ");
-        Util.print( "             [**]   ");
-        Util.print( "   O      O--|  |--O");
-        Util.print( " / | \\       |__|   ");
-        Util.print( "  / \\       _|  |_  ");
+        Util.println( "           ");
+        Util.println( "             [**]   ");
+        Util.println( "   O      O--|  |--O");
+        Util.println( " / | \\       |__|   ");
+        Util.println( "  / \\       _|  |_  ");
     }
 
     public void printDragon(){
-        Util.print( "              _______        ");
-        Util.print( "          ^ ^ |              ");
-        Util.print( "   O     {* *}--------       ");
-        Util.print( " / | \\    \\_/________=====>>");
-        Util.print( "  / \\       //       \\\\    ");
+        Util.println( "              _______        ");
+        Util.println( "          ^ ^ |              ");
+        Util.println( "   O     {* *}--------       ");
+        Util.println( " / | \\    \\_/________=====>>");
+        Util.println( "  / \\       //       \\\\    ");
     }
 }

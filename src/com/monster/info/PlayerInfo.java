@@ -33,8 +33,8 @@ public class PlayerInfo {
     }
 
     public void statusPlayer() {
-        Util.print(mName, "<"+mRoleName+">", "health:", getHealth(), "strength:", getStrength(), "shield:", getShield());
-        // System.out.println(mName+mRoles.getRole()+getHealth()+getStrength());
+        Util.println(mName, "<"+mRoleName+">", "health:", getHealth(), "strength:", getStrength(), "shield:", getShield());
+        // System.out.printlnln(mName+mRoles.getRole()+getHealth()+getStrength());
     }
 
     //TODO: Is this necessary?

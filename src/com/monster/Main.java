@@ -8,13 +8,14 @@ public class Main {
     public static void main(final String args[]) {
         Scanner scanner = new Scanner(System.in);
 
-        Util.print("What is your name? : ");
+        Util.println("What is your name? : ");
         String name = scanner.nextLine();
+        
+        Util.println("1. warrior:      high attack, moderate health");
+        Util.println("2. shieldsman:   high health, low attack, heal every round");
+        Util.println("3. ninja:        moderate attack, moderate attack, counterattack if dodge attack");
+        Util.println("4. mage:         low health, high attack, attack/blind/sleep enemy or make protection");
         Util.print("Select your role : ");
-        Util.print("1. warrior:      high attack, moderate health \n");
-        Util.print("2. shieldsman:   high health, low attack, heal every round \n");
-        Util.print("3. ninja:        moderate attack, moderate attack, counterattack if dodge attack \n");
-        Util.print("4. mage:         low health, high attack, attack/blind/sleep enemy or make protection \n");
         String roleNumber = scanner.nextLine();
 
         PlayerInfo player = new PlayerInfo(name, roleNumber);
@@ -23,15 +24,15 @@ public class Main {
 
         // monster.encounter();
         // map.move();
+        // Util.println(map.getPosition());
+        // Util.println(Arrays.toString(map.getStage()));
         // map.move();
-        // Util.print(map.getPosition());
-        // Util.print(Arrays.toString(map.getStage()));
+        // Util.println(Arrays.toString(map.getStage()));
         // map.move();
-        // Util.print(Arrays.toString(map.getStage()));
-        // map.move();
-        // Util.print(Arrays.toString(map.getStage()));
+        // Util.println(Arrays.toString(map.getStage()));
 
         player.statusPlayer();
+        map.move();
         // monster.statusMonster();
         // monster.printMonster();
         // monster.printSpider();
