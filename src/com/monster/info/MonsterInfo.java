@@ -4,27 +4,12 @@ import utils.Util;
 import java.lang.Math;
 
 public class MonsterInfo {
-    private String mMonsterKind;
-    private String mName;
-    private int mHealth;
-    private int mStrength;
-
-    //TODO: maybe in a separate class?
-    // private String slimeN1 = "Wangui";
-    // private String slimeN2 = "Nomusa";
-    // private String slimeN3 = "Pua";
-    // private String spiderN1 = "Vaso";
-    // private String spiderN2 = "Toril";
-    // private String spiderN3 = "Hulda";
-    // private String orcN1 = "Chinweike";
-    // private String orcN2 = "Nkechi";
-    // private String orcN3 = "Olufunke";
-    // private String ogreN1 = "Chioma";
-    // private String ogreN2 = "Simisola";
-    // private String ogreN3 = "Imamu";
-    // private String dragonN1 = "Mahtab";
-    // private String dragonN2 = "Mirembe";
-    // private String dragonN3 = "Mandlenkosi";
+    public String mMonsterKind;
+    public String mName;
+    public int mHealth;
+    public int mStrength;
+    public boolean mSleep = false;
+    
     private String[] mMonsterNames = new String[]{
         "Wangui", 
         "Nomusa", 
@@ -73,7 +58,7 @@ public class MonsterInfo {
     }
 
     public void status() {
-        Util.println(mName, "health:", getHealth(), "strength:", getStrength());
+        Util.println(mName, "<"+mMonsterKind+">", "health:", getHealth(), "strength:", getStrength());
     }
 
     public int getHealth() {
@@ -90,6 +75,14 @@ public class MonsterInfo {
 
     public String getKind() {
         return mMonsterKind;
+    }
+
+    public boolean isSleep() {
+        if (mSleep) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public String namePicker() {

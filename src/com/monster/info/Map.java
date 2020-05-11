@@ -15,10 +15,10 @@ public class Map {
     
     public void move(PlayerInfo player) {
         printMap();
-        Util.println("Choose a door (r/l)");
-        //String door = mScanner.nextLine();
+        Util.print("Choose a door (r/l)");
         char[] target = {'r', 'l'};
         String door = Util.trueInput(target);
+        Util.println("\n\n\n");
 
         if (door.equals("l")) {
             mCurrentPosition.add(1);
@@ -31,6 +31,8 @@ public class Map {
         if (mCurrentPosition.size() == 3) {
             Util.println("--------------------");
             Util.println("Entering Boss Room!");
+            Util.println("--------------------");
+            Util.println("\n\n\n");
             encounter(player, true);
         } else {
             encounter(player, false);
@@ -69,6 +71,8 @@ public class Map {
 
         Util.println("--------------------");
         Util.println("You encountered:", monster.getName(), "<"+monster.getKind()+">", "!");
+        Util.println("--------------------");
+        Util.println("\n\n\n");
         action.action(player, monster);
     }
 

@@ -6,13 +6,15 @@ import java.util.Scanner;
 
 public class PlayerInfo {
 
-    private String mName;
-    private Roles mRoles;
-    private String mRoleName;
-    private int mHealth;
-    private int mStrength;
-    private int mShield;
-    private boolean mLife;
+    public String mName;
+    public Roles mRoles;
+    public String mRoleName;
+    public int mHealth;
+    public int mStrength;
+    public int mShield;
+    public boolean mLife = true;
+    public boolean mProtection = false;
+    public boolean mDodge = false;
 
     public PlayerInfo(String name, String roleNumber) {
         mName = name;
@@ -50,5 +52,21 @@ public class PlayerInfo {
     }
     public String getRole() {
         return mRoleName;
+    }
+
+    public boolean isProtected() {
+        if (mProtection) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isDodged() {
+        if (mDodge) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
