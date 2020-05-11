@@ -84,9 +84,12 @@ public class MonsterInfo {
         return mStrength;
     }
 
-    public void encounter() {
-        Util.println("--------------------");
-        Util.println("You encountered:", mName, "<"+mMonsterKind+">", "!");
+    public String getName() {
+        return mName;
+    }
+
+    public String getKind() {
+        return mMonsterKind;
     }
 
     public String namePicker() {

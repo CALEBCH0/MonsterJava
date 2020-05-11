@@ -5,36 +5,102 @@ import java.util.Scanner;
 import java.util.Arrays;
 import java.util.Vector;
 
+import info.MonsterInfo;
+import info.PlayerInfo;
+
 //TODO: In the future maybe have a grid-shaped map
 public class Map {
     Scanner mScanner = new Scanner(System.in);
-    Vector<Integer> mCurrentPosition = new Vector<Integer>();
+    Vector<Integer> mCurrentPosition = new Vector<Integer>(3);
     
-    public void move() {
+    public void move(PlayerInfo player) {
         printMap();
         Util.println("Which door would you like to go? (r/l)");
         String door = mScanner.nextLine();
 
-        if (door.equals("r")) {
+        if (door.equals("l")) {
             mCurrentPosition.add(1);
-        } else if (door.equals("l")) {
+        } else if (door.equals("r")) {
             mCurrentPosition.add(2);
         }
 
+        Util.println(getPosition());
+
         if (mCurrentPosition.size() == 3) {
-            boss();
+            Util.println("--------------------");
+            Util.println("Entering Boss Room!");
+            encounter(player, true);
+        } else {
+            encounter(player, false);
         }
     }
 
-    public void boss() {
+    MonsterInfo monster;
+
+    public void encounter(PlayerInfo player, boolean boss) {
         
+        if (boss == false) {
+            if (mCurrentPosition.get(0) == 1) {
+                if (mCurrentPosition.lastIndexOf(mCurrentPosition.lastElement()) > 0) {
+                    if (mCurrentPosition.get(1) == 1) {
+                        monster = new MonsterInfo("spider");
+                    } else if (mCurrentPosition.get(1) == 2) {
+                        monster = new MonsterInfo("orc");  
+                    }
+                } else {
+                    monster = new MonsterInfo("slime");
+                }
+            } else if (mCurrentPosition.get(0) == 2) {
+                if (mCurrentPosition.lastIndexOf(mCurrentPosition.lastElement()) > 0) {
+                    if (mCurrentPosition.get(1) == 1) {
+                        monster = new MonsterInfo("orc");
+                    } else if (mCurrentPosition.get(1) == 2) {
+                        monster = new MonsterInfo("ogre");
+                    }
+                } else {
+                    monster = new MonsterInfo("spider");
+                }
+            }
+        } else if (boss == true) {
+            monster = new MonsterInfo("dragon");
+        }
+
+        Util.println("--------------------");
+        Util.println("You encountered:", monster.getName(), "<"+monster.getKind()+">", "!");
     }
 
+    // public void encounter(PlayerInfo player, boolean boss) {
+    //     if (boss == false) {
+    //         if (mCurrentPosition.get(0) == 1) {
+    //             if (mCurrentPosition.get(1) == 1) {
+    //                 MonsterInfo monster = new MonsterInfo("spider");
+    //             } else if (mCurrentPosition.get(1) == 2) {
+    //                 MonsterInfo monster = new MonsterInfo("orc");  
+    //             } else {
+    //                 MonsterInfo monster = new MonsterInfo("slime");
+    //             }
+    //         } else if (mCurrentPosition.get(0) == 2) {
+    //             if (mCurrentPosition.get(1) == 1) {
+    //                 MonsterInfo monster = new MonsterInfo("orc");
+    //             } else if (mCurrentPosition.get(2) == 2) {
+    //                 MonsterInfo monster = new MonsterInfo("ogre");
+    //             } else {
+    //                 MonsterInfo monster = new MonsterInfo("spider");
+    //             }
+    //         }
+    //     } else if (boss == true) {
+    //         MonsterInfo monster = new MonsterInfo("dragon");
+    //     }
+
+    //     Util.println("--------------------");
+    //     Util.println("You encountered:", monster.getName(), "<"+monster.getKind()+">", "!");
+    // }
+
     // Currently it is two doors
+    // the console cannot print overbar ‾
     public void printMap() {
-        String overbar = new String(new int[] { 0x1F601 }, 0, 1);
-        Util.println("                             "+overbar);
-        Util.println(" |‾‾‾‾‾‾‾‾‾|     |‾‾‾‾‾‾‾‾‾| ");
+        Util.println(" ___________     ___________ ");
+        Util.println(" |         |     |         | ");
         Util.println(" |^^^^^^^^^|     |   [-]   | ");
         Util.println(" |^  {=}  ^|     |[-][-][-]| ");
         Util.println(" |^^^^^^^^^|     |   [-]   | ");
