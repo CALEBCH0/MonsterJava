@@ -16,7 +16,9 @@ public class Map {
     public void move(PlayerInfo player) {
         printMap();
         Util.println("Which door would you like to go? (r/l)");
-        String door = mScanner.nextLine();
+        //String door = mScanner.nextLine();
+        char[] target = {'r', 'l'};
+        String door = Util.trueInput(target);
 
         if (door.equals("l")) {
             mCurrentPosition.add(1);
