@@ -1,7 +1,5 @@
 package info;
 
-import utils.Util;
-
 public class Roles {
 
     private int mHealth;
