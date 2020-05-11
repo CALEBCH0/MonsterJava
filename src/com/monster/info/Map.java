@@ -1,12 +1,12 @@
 package info;
 
-import utils.Util;
 import java.util.Scanner;
 import java.util.Arrays;
 import java.util.Vector;
 
-import info.MonsterInfo;
-import info.PlayerInfo;
+import info.*;
+import utils.Util;
+import action.Action;
 
 //TODO: In the future maybe have a grid-shaped map
 public class Map {
@@ -15,7 +15,7 @@ public class Map {
     
     public void move(PlayerInfo player) {
         printMap();
-        Util.println("Which door would you like to go? (r/l)");
+        Util.println("Choose a door (r/l)");
         //String door = mScanner.nextLine();
         char[] target = {'r', 'l'};
         String door = Util.trueInput(target);
@@ -40,7 +40,7 @@ public class Map {
     MonsterInfo monster;
 
     public void encounter(PlayerInfo player, boolean boss) {
-        
+        Action action = new Action();
         if (boss == false) {
             if (mCurrentPosition.get(0) == 1) {
                 if (mCurrentPosition.lastIndexOf(mCurrentPosition.lastElement()) > 0) {
@@ -69,6 +69,7 @@ public class Map {
 
         Util.println("--------------------");
         Util.println("You encountered:", monster.getName(), "<"+monster.getKind()+">", "!");
+        action.action(player, monster);
     }
 
     // public void encounter(PlayerInfo player, boolean boss) {

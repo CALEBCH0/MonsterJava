@@ -32,15 +32,9 @@ public class PlayerInfo {
         }
     }
 
-    public void statusPlayer() {
+    public void status() {
         Util.println(mName, "<"+mRoleName+">", "health:", getHealth(), "strength:", getStrength(), "shield:", getShield());
         // System.out.printlnln(mName+mRoles.getRole()+getHealth()+getStrength());
-    }
-
-    //TODO: Is this necessary?
-    public void setPlayer() {
-        // get name and role
-        // put it as the parameter for the playerinfo
     }
 
     public int getHealth() {
@@ -53,5 +47,8 @@ public class PlayerInfo {
 
     public int getShield() {
         return mShield;
+    }
+    public String getRole() {
+        return mRoleName;
     }
 }

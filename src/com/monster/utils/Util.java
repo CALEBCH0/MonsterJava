@@ -1,5 +1,6 @@
 package utils;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Util {
@@ -82,5 +83,18 @@ public class Util {
             }
         }
         return input;
+    }
+
+    public static int randomNumberGen(double min, double max) {
+        return (int) Math.round((Math.random() * ((max - min) + 1)) + min);
+    }
+
+    public static int randomNumberGen(int min, int max) {                                                                                    
+        Random random = new Random();                                                                                             
+        int rn = max + 1;
+        while (rn > max) {
+            rn = random.nextInt(max) + min;    
+        }
+        return rn;
     }
 }

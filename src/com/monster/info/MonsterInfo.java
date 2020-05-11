@@ -72,7 +72,7 @@ public class MonsterInfo {
         }
     }
 
-    public void statusMonster() {
+    public void status() {
         Util.println(mName, "health:", getHealth(), "strength:", getStrength());
     }
 
@@ -95,41 +95,37 @@ public class MonsterInfo {
     public String namePicker() {
         int picker;
         if (mMonsterKind == "slime") {
-        picker = randomNumberGen(0, 2);
+        picker = Util.randomNumberGen(1, 2);
         if (picker == 0) {return mMonsterNames[picker];}
         else if (picker == 1) {return mMonsterNames[picker];}
         else if (picker == 2) {return mMonsterNames[picker];}
       }
       else if(mMonsterKind == "spider") {
-        picker = randomNumberGen(3, 5);
+        picker = Util.randomNumberGen(3, 5);
         if (picker == 3) {return mMonsterNames[picker];}
         else if (picker == 4) {return mMonsterNames[picker];}
         else if (picker == 5) {return mMonsterNames[picker];}
       }
       else if (mMonsterKind == "orc") {
-        picker = randomNumberGen(6, 8);
+        picker = Util.randomNumberGen(6, 8);
         if (picker == 6) {return mMonsterNames[picker];}
         else if (picker == 7) {return mMonsterNames[picker];}
         else if (picker == 8) {return mMonsterNames[picker];}
       }
       else if (mMonsterKind == "ogre") { 
-        picker = randomNumberGen(9, 11);
+        picker = Util.randomNumberGen(9, 11);
         if (picker == 9) {return mMonsterNames[picker];}
         else if (picker == 10) {return mMonsterNames[picker];}
         else if (picker == 11) {return mMonsterNames[picker];}
       }
       else if (mMonsterKind == "dragon") {
-        picker = randomNumberGen(12, 14);
+        picker = Util.randomNumberGen(12, 14);
         if (picker == 12) {return mMonsterNames[picker];}
         else if (picker == 13) {return mMonsterNames[picker];}
         else if (picker == 14) {return mMonsterNames[picker];}
       }
       return "namePickerError";
 
-    }
-
-    public int randomNumberGen(double min, double max) {
-        return (int) Math.round((Math.random() * ((max - min) + 1)) + min);
     }
 
     public void printMonster() {
