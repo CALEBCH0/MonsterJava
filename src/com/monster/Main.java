@@ -16,7 +16,7 @@ public class Main {
         Util.print("3. ninja:        moderate attack, moderate attack, counterattack if dodge attack \n");
         Util.print("4. mage:         low health, high attack, attack/blind/sleep enemy or make protection \n");
         String roleNumber = scanner.nextLine();
-        
+
         PlayerInfo player = new PlayerInfo(name, roleNumber);
         MonsterInfo monster = new MonsterInfo("slime");
         Map map = new Map();
