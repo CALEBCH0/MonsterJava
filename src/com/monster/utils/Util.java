@@ -85,15 +85,29 @@ public class Util {
         return input;
     }
 
+    // Outdated & Malfunction
     public static int randomNumberGen(double min, double max) {
         return (int) Math.round((Math.random() * ((max - min) + 1)) + min);
     }
 
+    /**
+     * 
+     * @param min
+     * (inclusive)
+     * @param max
+     * (inclusive)
+     * @return
+     * random integer between min and max
+     */
     public static int randomNumberGen(int min, int max) {                                                                                    
         Random random = new Random();                                                                                             
         int rn = max + 1;
-        while (rn > max) {
-            rn = random.nextInt(max) + min;    
+        if (min == 0) {
+            rn = random.nextInt(rn);
+        } else {
+            while (rn > max) {
+                rn = random.nextInt(rn) + min;    
+            }
         }
         return rn;
     }

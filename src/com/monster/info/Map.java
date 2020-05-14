@@ -15,8 +15,9 @@ public class Map {
     
     public void move(PlayerInfo player) {
         printMap();
+        // TODO: if input "rl", returns arrayindexoutofboundsexception.
         Util.print("Choose a door (r/l)");
-        char[] target = {'r', 'l'};
+        char[] target = {'r', 'l', 't'};
         String door = Util.trueInput(target);
         Util.println("\n\n\n");
 
@@ -24,9 +25,10 @@ public class Map {
             mCurrentPosition.add(1);
         } else if (door.equals("r")) {
             mCurrentPosition.add(2);
+        } else if (door.equals("t")) {
+            monster = new MonsterInfo("Target");
+            action.action(player, monster);
         }
-
-        Util.println(getPosition());
 
         if (mCurrentPosition.size() == 3) {
             Util.println("--------------------");
@@ -39,34 +41,36 @@ public class Map {
         }
     }
 
+    // TODO: make it private member and relocate
     MonsterInfo monster;
+    Action action = new Action();
 
     public void encounter(PlayerInfo player, boolean boss) {
-        Action action = new Action();
+        
         if (boss == false) {
             if (mCurrentPosition.get(0) == 1) {
                 if (mCurrentPosition.lastIndexOf(mCurrentPosition.lastElement()) > 0) {
                     if (mCurrentPosition.get(1) == 1) {
-                        monster = new MonsterInfo("spider");
+                        monster = new MonsterInfo("Spider");
                     } else if (mCurrentPosition.get(1) == 2) {
-                        monster = new MonsterInfo("orc");  
+                        monster = new MonsterInfo("Orc");  
                     }
                 } else {
-                    monster = new MonsterInfo("slime");
+                    monster = new MonsterInfo("Slime");
                 }
             } else if (mCurrentPosition.get(0) == 2) {
                 if (mCurrentPosition.lastIndexOf(mCurrentPosition.lastElement()) > 0) {
                     if (mCurrentPosition.get(1) == 1) {
-                        monster = new MonsterInfo("orc");
+                        monster = new MonsterInfo("Orc");
                     } else if (mCurrentPosition.get(1) == 2) {
-                        monster = new MonsterInfo("ogre");
+                        monster = new MonsterInfo("Ogre");
                     }
                 } else {
-                    monster = new MonsterInfo("spider");
+                    monster = new MonsterInfo("Spider");
                 }
             }
         } else if (boss == true) {
-            monster = new MonsterInfo("dragon");
+            monster = new MonsterInfo("Dragon");
         }
 
         Util.println("--------------------");

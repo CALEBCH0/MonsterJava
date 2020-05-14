@@ -15,6 +15,10 @@ public class PlayerInfo {
     public boolean mLife = true;
     public boolean mProtection = false;
     public boolean mDodge = false;
+    // public int enervateCount = 1;
+    // public int sleepCount = 1;
+    // public int protectCount = 1;
+    public int[] mSpellCount = {1, 1, 1};
 
     public PlayerInfo(String name, String roleNumber) {
         mName = name;
@@ -52,6 +56,10 @@ public class PlayerInfo {
     }
     public String getRole() {
         return mRoleName;
+    }
+
+    public int getSpellCount(int spellNumber) {
+        return mSpellCount[spellNumber-1];
     }
 
     public boolean isProtected() {
