@@ -1,4 +1,4 @@
-package info;
+package com.monster.info;
 
 public class Roles {
 
@@ -11,26 +11,26 @@ public class Roles {
         // high attack, moderate health 
         if (roleNumber.equals("1")) {
             mRoleName = "Swordmaster";
-            mHealth = 2;
-            mStrength = 3;
-            mShield = 1;
+            mHealth = 120;
+            mStrength = 40;
+            mShield = 10;
         // high attack, low health, uses magic
         } else if (roleNumber.equals("2")) {
             mRoleName = "Mage";
-            mHealth = 1;
-            mStrength = 3;
-            mShield = 2;
+            mHealth = 80;
+            mStrength = 50;
+            mShield = 20;
         // high health, low attack, heal regen round
         } else if (roleNumber.equals("3")) {
             mRoleName = "Shieldsman";
-            mHealth = 3;
-            mStrength = 1;
-            mShield = 3;
+            mHealth = 150;
+            mStrength = 20;
+            mShield = 30;
         //  moderate attack, moderate health, counterattack if dodge attack
         } else if (roleNumber.equals("4")) {
             mRoleName = "Ninja";
-            mHealth = 2;
-            mStrength = 2;
+            mHealth = 100;
+            mStrength = 25;
             mShield = 0;
         } else if (roleNumber.equals("a")) {
             mRoleName = "Admin";

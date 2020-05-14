@@ -1,6 +1,6 @@
-package info;
+package com.monster.info;
 
-import utils.Util;
+import com.monster.utils.Util;
 
 import java.util.Scanner;
 

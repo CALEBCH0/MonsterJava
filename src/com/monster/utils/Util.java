@@ -1,4 +1,4 @@
-package utils;
+package com.monster.utils;
 
 import java.util.Random;
 import java.util.Scanner;

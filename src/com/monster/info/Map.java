@@ -1,12 +1,12 @@
-package info;
+package com.monster.info;
 
 import java.util.Scanner;
 import java.util.Arrays;
 import java.util.Vector;
 
-import info.*;
-import utils.Util;
-import action.Action;
+//import com.monster.info.*;
+import com.monster.utils.Util;
+import com.monster.action.Action;
 
 //TODO: In the future maybe have a grid-shaped map
 public class Map {
@@ -72,7 +72,7 @@ public class Map {
         Util.println("--------------------");
         Util.println("You encountered:", monster.getName(), "<"+monster.getKind()+">", "!");
         Util.println("--------------------");
-        Util.println("\n\n\n");
+        Util.println("\n");
         action.action(player, monster);
     }
 

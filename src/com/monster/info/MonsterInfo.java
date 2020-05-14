@@ -1,6 +1,6 @@
-package info;
+package com.monster.info;
 
-import utils.Util;
+import com.monster.utils.*;
 import java.lang.Math;
 
 public class MonsterInfo {

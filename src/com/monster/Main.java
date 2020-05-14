@@ -1,5 +1,7 @@
-import info.*;
-import utils.*;
+package com.monster;
+
+import com.monster.info.*;
+import com.monster.utils.*;
 
 import java.util.Arrays;
 import java.util.Scanner;
