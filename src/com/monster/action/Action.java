@@ -66,12 +66,25 @@ public class Action {
         Util.println("--------------------");
         // crit
         if (player.getRole().equals("Swordmaster")) {
-            if (Util.randomNumberGen(1, 3) == 1 || Util.randomNumberGen(1, 3) == 2) {
-                monster.mHealth = monster.mHealth - (2 * player.getStrength());
-                Util.println("Critical! You dealt -"+(2 * player.getStrength()), "to", monster.getName());
-            } else if (Util.randomNumberGen(1, 3) == 3) {
-                monster.mHealth = monster.mHealth - player.getStrength();
-                Util.println("You dealt -"+player.getStrength(), "to", monster.getName());
+            if (Util.randomNumberGen(1, 2) == 1) {
+                if (Util.randomNumberGen(1, 3) == 1 || Util.randomNumberGen(1, 3) == 2) {
+                    monster.mHealth = monster.mHealth - (2 * player.getStrength());
+                    Util.println("Critical! You dealt -"+(2 * player.getStrength()), "to", monster.getName());
+                } else if (Util.randomNumberGen(1, 3) == 3) {
+                    monster.mHealth = monster.mHealth - player.getStrength();
+                    Util.println("You dealt -"+player.getStrength(), "to", monster.getName());
+                }
+            } else if (Util.randomNumberGen(1, 2) == 2) {
+                Util.println("Double attack!");
+                for (int i = 1; i <= 2; i++) {
+                    if (Util.randomNumberGen(1, 3) == 1 || Util.randomNumberGen(1, 3) == 2) {
+                        monster.mHealth = monster.mHealth - (2 * player.getStrength());
+                        Util.println("Critical! You dealt -"+(2 * player.getStrength()), "to", monster.getName());
+                    } else if (Util.randomNumberGen(1, 3) == 3) {
+                        monster.mHealth = monster.mHealth - player.getStrength();
+                        Util.println("You dealt -"+player.getStrength(), "to", monster.getName());
+                    }
+                }
             }
         } else if (player.getRole().equals("Mage")) {
             Util.println("1. fireball spell                                   ");

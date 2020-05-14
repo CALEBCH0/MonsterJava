@@ -37,7 +37,9 @@ public class Main {
 
         player.status();
         map.move(player);
+        Util.println("\n\n\n");
         map.move(player);
+        Util.println("\n\n\n");
         map.move(player);
     }
 }

@@ -19,6 +19,7 @@ public class Map {
         Util.print("Choose a door (r/l)");
         char[] target = {'r', 'l', 't'};
         String door = Util.trueInput(target);
+        // TODO: more spaces
         Util.println("\n\n\n");
 
         if (door.equals("l")) {
