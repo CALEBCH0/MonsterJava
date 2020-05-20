@@ -32,12 +32,15 @@ public class Map {
         }
 
         if (mCurrentPosition.size() == 3) {
+            Util.wait(1000);
             Util.println("--------------------");
             Util.println("Entering Boss Room!");
             Util.println("--------------------");
             Util.println("\n\n\n");
+            Util.wait(1000);
             encounter(player, true);
         } else {
+            Util.wait(1000);
             encounter(player, false);
         }
     }

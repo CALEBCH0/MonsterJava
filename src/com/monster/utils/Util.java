@@ -111,4 +111,8 @@ public class Util {
         }
         return rn;
     }
+    public static void wait(int milisecond) {
+        try{Thread.sleep(milisecond);}
+        catch(InterruptedException ex){Thread.currentThread().interrupt();}
+    }
 }

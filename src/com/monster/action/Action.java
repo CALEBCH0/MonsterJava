@@ -18,9 +18,22 @@ public class Action {
             Util.println("\n\n\n");
 
             if (action.equals("a")) {
+                Util.wait(1000);
                 attack(player, monster);
+                Util.wait(1000);
+                Util.println("--------------------");
+                if (player.getRole().equals("Shieldsman")) {
+                    Util.println("End of turn. Regenerating health. +"+30);
+                    player.mHealth = player.getHealth() + 30;
+                } else {
+                    Util.println("End of turn. Regenerating health. +"+10);
+                    player.mHealth = player.getHealth() + 10;
+                }
+                Util.println("--------------------");
+                Util.println("\n\n\n");
                 if (player.isDead()) {
                     Util.println("Game Over");
+                    Util.wait(1000);
                     break;
                 }
                 if (monster.isDead()) {
@@ -28,12 +41,26 @@ public class Action {
                     if (monster.getName().equals("Dragon")) {
                         Util.println("Game Clear!");
                     }
+                    Util.wait(1000);
                     break;
                 }
             } else if (action.equals("d")) {
+                Util.wait(1000);
                 dodge(player, monster);
+                Util.wait(1000);
+                Util.println("--------------------");
+                if (player.getRole().equals("Shieldsman")) {
+                    Util.println("End of turn. Regenerating health. +"+30);
+                    player.mHealth = player.getHealth() + 30;
+                } else {
+                    Util.println("End of turn. Regenerating health. +"+10);
+                    player.mHealth = player.getHealth() + 10;
+                }
+                Util.println("--------------------");
+                Util.println("\n\n\n");
                 if (player.isDead()) {
                     Util.println("Game Over");
+                    Util.wait(1000);
                     break;
                 }
                 if (monster.isDead()) {
@@ -41,24 +68,17 @@ public class Action {
                     if (monster.getName().equals("Dragon")) {
                         Util.println("Game Clear!");
                     }
+                    Util.wait(1000);
                     break;
                 }
             }
             counterAttack(player, monster);
+            Util.wait(1000);
             if (player.isDead()) {
                 Util.println("Game Over");
+                Util.wait(1000);
                 break;
             }
-            Util.println("--------------------");
-            if (player.getRole().equals("Shieldsman")) {
-                Util.println("End of turn. Regenerating health. +"+30);
-                player.mHealth = player.getHealth() + 30;
-            } else {
-                Util.println("End of turn. Regenerating health. +"+10);
-                player.mHealth = player.getHealth() + 10;
-            }
-            Util.println("--------------------");
-            Util.println("\n\n\n");
         }
     }   
 
@@ -66,21 +86,24 @@ public class Action {
         Util.println("--------------------");
         // crit
         if (player.getRole().equals("Swordmaster")) {
-            if (Util.randomNumberGen(1, 2) == 1) {
-                if (Util.randomNumberGen(1, 3) == 1 || Util.randomNumberGen(1, 3) == 2) {
+            int crit = Util.randomNumberGen(1, 3);
+            if (crit == 1 || crit == 2) {
+                crit = Util.randomNumberGen(1, 3);
+                if (crit == 1 || crit == 2) {
                     monster.mHealth = monster.mHealth - (2 * player.getStrength());
                     Util.println("Critical! You dealt -"+(2 * player.getStrength()), "to", monster.getName());
-                } else if (Util.randomNumberGen(1, 3) == 3) {
+                } else if (crit == 3) {
                     monster.mHealth = monster.mHealth - player.getStrength();
                     Util.println("You dealt -"+player.getStrength(), "to", monster.getName());
                 }
-            } else if (Util.randomNumberGen(1, 2) == 2) {
-                Util.println("Double attack!");
+            } else if (crit == 3) {
+                Util.println("Double strike!");
                 for (int i = 1; i <= 2; i++) {
-                    if (Util.randomNumberGen(1, 3) == 1 || Util.randomNumberGen(1, 3) == 2) {
+                    crit = Util.randomNumberGen(1, 3);
+                    if (crit == 1 || crit == 2) {
                         monster.mHealth = monster.mHealth - (2 * player.getStrength());
                         Util.println("Critical! You dealt -"+(2 * player.getStrength()), "to", monster.getName());
-                    } else if (Util.randomNumberGen(1, 3) == 3) {
+                    } else if (crit == 3) {
                         monster.mHealth = monster.mHealth - player.getStrength();
                         Util.println("You dealt -"+player.getStrength(), "to", monster.getName());
                     }
@@ -146,7 +169,6 @@ public class Action {
 
         if (player.getRole().equals("Ninja")) {
             int evasion = Util.randomNumberGen(1, 3);
-            Util.println(evasion);
             if (evasion == 1 || evasion == 2) {
                 Util.println("Dodged successfully!");
                 monster.mHealth = monster.mHealth - (2 * player.getStrength());
@@ -160,26 +182,15 @@ public class Action {
                 player.mDodge = false;
             }
         } else {
-            // TODO: declare variable or straight to the if?
-            // int evasion = Util.randomNumberGen(1, 2);
-            // Util.println(evasion);
-            // if (evasion == 1) {
-            //     Util.println("Dodged successfully!");
-            //     Util.println("--------------------");
-            //     player.mDodge = true;
-            // } else if (evasion == 2) {
-            //     Util.println("Failed to dodge!");
-            //     Util.println("--------------------");
-            //     player.mDodge = false;
-            // }
-            if (Util.randomNumberGen(1, 2) == 1) {
+            int evasion = Util.randomNumberGen(1, 2);
+            if (evasion == 1) {
                 // TODO: how much to recover?
                 player.mHealth = player.getHealth() + monster.getStrength()/2;
                 Util.println("Dodged successfully!");
                 Util.println("Recovering health. +"+ monster.getStrength()/2);
                 Util.println("--------------------");
                 player.mDodge = true;
-            } else if (Util.randomNumberGen(1, 2) == 2) {
+            } else if (evasion == 2) {
                 Util.println("Failed to dodge!");
                 Util.println("--------------------");
                 player.mDodge = false;
@@ -203,6 +214,7 @@ public class Action {
             Util.println(monster.getName(), "dealt", monster.getStrength(), "to you!");
             player.status();
             Util.println("--------------------");
+            Util.println("\n\n\n");
         }
     }
 }

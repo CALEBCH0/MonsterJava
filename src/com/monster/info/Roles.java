@@ -17,7 +17,7 @@ public class Roles {
         // high attack, low health, uses magic
         } else if (roleNumber.equals("2")) {
             mRoleName = "Mage";
-            mHealth = 80;
+            mHealth = 100;
             mStrength = 50;
             mShield = 20;
         // high health, low attack, heal regen round

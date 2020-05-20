@@ -3,23 +3,30 @@ package com.monster;
 import com.monster.info.*;
 import com.monster.utils.*;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     public static void main(final String args[]) {
+
         // int i = 0;
-        
-        // while (i < 100) {
-        //     Util.println(Util.randomNumberGen(1, 2));
+        // while (i < 5) {
+        //     int n = Util.randomNumberGen(1, 3);
+        //     Util.println(n);
+        //     n = Util.randomNumberGen(1, 3);
+        //     Util.println(n);
+        //     Util.println("--------------------------");
         //     i++;
         // }
 
         Scanner scanner = new Scanner(System.in);
-        boolean trueInput = false;
         String name = "";
         String roleNumber = "";
 
+        Util.println("____________________________________________________________");
+        for (int i = 0; i < 15; i++) {
+        Util.println("|              Adjust the window to this box               |");
+        }
+        Util.println("|__________________________________________________________|");
         Util.print("What is your name? : ");
         name = scanner.nextLine();
         Util.println("\n\n\n");

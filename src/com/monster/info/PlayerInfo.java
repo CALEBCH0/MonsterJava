@@ -18,7 +18,7 @@ public class PlayerInfo {
     // public int enervateCount = 1;
     // public int sleepCount = 1;
     // public int protectCount = 1;
-    public int[] mSpellCount = {1, 1, 1};
+    public int[] mSpellCount = {1, 2, 1};
 
     public PlayerInfo(String name, String roleNumber) {
         mName = name;
