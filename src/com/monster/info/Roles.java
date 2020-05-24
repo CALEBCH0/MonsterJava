@@ -12,7 +12,7 @@ public class Roles {
         if (roleNumber.equals("1")) {
             mRoleName = "Swordmaster";
             mHealth = 120;
-            mStrength = 40;
+            mStrength = 20;
             mShield = 10;
         // high attack, low health, uses magic
         } else if (roleNumber.equals("2")) {

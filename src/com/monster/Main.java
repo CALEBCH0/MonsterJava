@@ -6,6 +6,7 @@ import com.monster.utils.*;
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(final String args[]) {
 
         // int i = 0;
@@ -21,7 +22,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String name = "";
         String roleNumber = "";
-
+        Util.println("\n\n");
         Util.println("____________________________________________________________");
         for (int i = 0; i < 15; i++) {
         Util.println("|              Adjust the window to this box               |");
@@ -29,7 +30,7 @@ public class Main {
         Util.println("|__________________________________________________________|");
         Util.print("What is your name? : ");
         name = scanner.nextLine();
-        Util.println("\n\n\n");
+        Util.println("\n\n\n\n\n\n\n\n\n\n\n\n");
 
         Util.println("1. Swordmaster:  moderate health, high attack");
         Util.println("2. Mage:         low health, high attack, attack/enervate/sleep enemy or make protection");
@@ -38,7 +39,8 @@ public class Main {
         Util.print("Choose you role: ");
         char[] target = {'1', '2', '3', '4', 'a'};
         roleNumber = Util.trueInput(target);
-
+        Util.println("\n\n\n\n\n\n\n\n\n\n\n\n");
+        
         PlayerInfo player = new PlayerInfo(name, roleNumber);
         Map map = new Map();
 

@@ -79,7 +79,7 @@ public class Util {
                     text = text + target[i] + ", ";
                 }
                 text = text + target[target.length-1];
-                Util.println("Invalid input. Please enter " + text + ".");
+                Util.print("Invalid input. Please enter " + text + " : ");
             }
         }
         return input;

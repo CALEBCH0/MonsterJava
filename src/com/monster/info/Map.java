@@ -11,16 +11,18 @@ import com.monster.action.Action;
 //TODO: In the future maybe have a grid-shaped map
 public class Map {
     Scanner mScanner = new Scanner(System.in);
+    MonsterInfo monster;
+    Action action = new Action();
     Vector<Integer> mCurrentPosition = new Vector<Integer>(3);
     
     public void move(PlayerInfo player) {
+        Util.println("\n\n\n\n\n\n\n\n");
         printMap();
         // TODO: if input "rl", returns arrayindexoutofboundsexception.
         Util.print("Choose a door (r/l)");
         char[] target = {'r', 'l', 't'};
         String door = Util.trueInput(target);
-        // TODO: more spaces
-        Util.println("\n\n\n");
+        Util.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
         if (door.equals("l")) {
             mCurrentPosition.add(1);
@@ -36,8 +38,8 @@ public class Map {
             Util.println("--------------------");
             Util.println("Entering Boss Room!");
             Util.println("--------------------");
-            Util.println("\n\n\n");
-            Util.wait(1000);
+            Util.println("\n\n\n\n\n\n\n");
+            Util.wait(2000);
             encounter(player, true);
         } else {
             Util.wait(1000);
@@ -45,71 +47,79 @@ public class Map {
         }
     }
 
-    // TODO: make it private member and relocate
-    MonsterInfo monster;
-    Action action = new Action();
-
-    public void encounter(PlayerInfo player, boolean boss) {
-        
-        if (boss == false) {
-            if (mCurrentPosition.get(0) == 1) {
-                if (mCurrentPosition.lastIndexOf(mCurrentPosition.lastElement()) > 0) {
-                    if (mCurrentPosition.get(1) == 1) {
-                        monster = new MonsterInfo("Spider");
-                    } else if (mCurrentPosition.get(1) == 2) {
-                        monster = new MonsterInfo("Orc");  
-                    }
-                } else {
-                    monster = new MonsterInfo("Slime");
-                }
-            } else if (mCurrentPosition.get(0) == 2) {
-                if (mCurrentPosition.lastIndexOf(mCurrentPosition.lastElement()) > 0) {
-                    if (mCurrentPosition.get(1) == 1) {
-                        monster = new MonsterInfo("Orc");
-                    } else if (mCurrentPosition.get(1) == 2) {
-                        monster = new MonsterInfo("Ogre");
-                    }
-                } else {
-                    monster = new MonsterInfo("Spider");
-                }
-            }
-        } else if (boss == true) {
-            monster = new MonsterInfo("Dragon");
-        }
-
-        Util.println("--------------------");
-        Util.println("You encountered:", monster.getName(), "<"+monster.getKind()+">", "!");
-        Util.println("--------------------");
-        Util.println("\n");
-        action.action(player, monster);
-    }
-
     // public void encounter(PlayerInfo player, boolean boss) {
     //     if (boss == false) {
     //         if (mCurrentPosition.get(0) == 1) {
-    //             if (mCurrentPosition.get(1) == 1) {
-    //                 MonsterInfo monster = new MonsterInfo("spider");
-    //             } else if (mCurrentPosition.get(1) == 2) {
-    //                 MonsterInfo monster = new MonsterInfo("orc");  
+    //             if (mCurrentPosition.lastIndexOf(mCurrentPosition.lastElement()) > 0) {
+    //                 if (mCurrentPosition.get(1) == 1) {
+    //                     monster = new MonsterInfo("Spider");
+    //                 } else if (mCurrentPosition.get(1) == 2) {
+    //                     monster = new MonsterInfo("Orc");  
+    //                 }
     //             } else {
-    //                 MonsterInfo monster = new MonsterInfo("slime");
+    //                 monster = new MonsterInfo("Slime");
     //             }
     //         } else if (mCurrentPosition.get(0) == 2) {
-    //             if (mCurrentPosition.get(1) == 1) {
-    //                 MonsterInfo monster = new MonsterInfo("orc");
-    //             } else if (mCurrentPosition.get(2) == 2) {
-    //                 MonsterInfo monster = new MonsterInfo("ogre");
+    //             if (mCurrentPosition.lastIndexOf(mCurrentPosition.lastElement()) > 0) {
+    //                 if (mCurrentPosition.get(1) == 1) {
+    //                     monster = new MonsterInfo("Orc");
+    //                 } else if (mCurrentPosition.get(1) == 2) {
+    //                     monster = new MonsterInfo("Ogre");
+    //                 }
     //             } else {
-    //                 MonsterInfo monster = new MonsterInfo("spider");
+    //                 monster = new MonsterInfo("Spider");
     //             }
     //         }
     //     } else if (boss == true) {
-    //         MonsterInfo monster = new MonsterInfo("dragon");
+    //         monster = new MonsterInfo("Dragon");
     //     }
 
     //     Util.println("--------------------");
     //     Util.println("You encountered:", monster.getName(), "<"+monster.getKind()+">", "!");
+    //     Util.println("--------------------");
+    //     Util.println("\n\n\n\n\n\n\n");
+    //     Util.wait(2000);
+    //     Util.println("\n\n\n\n\n\n\n");
+    //     action.action(player, monster);
     // }
+
+    public void encounter(PlayerInfo player, boolean boss) {
+        String monsterKind = "";
+        if (boss == false) {
+            if (mCurrentPosition.get(0) == 1) {
+                if (mCurrentPosition.lastIndexOf(mCurrentPosition.lastElement()) > 0) {
+                    if (mCurrentPosition.get(1) == 1) {
+                        monsterKind = "Spider";
+                    } else if (mCurrentPosition.get(1) == 2) {
+                        monsterKind = "Orc";  
+                    }
+                } else {
+                    monsterKind = "Slime";
+                }
+            } else if (mCurrentPosition.get(0) == 2) {
+                if (mCurrentPosition.lastIndexOf(mCurrentPosition.lastElement()) > 0) {
+                    if (mCurrentPosition.get(1) == 1) {
+                        monsterKind = "Orc";
+                    } else if (mCurrentPosition.get(1) == 2) {
+                        monsterKind = "Ogre";
+                    }
+                } else {
+                    monsterKind = "Spider";
+                }
+            }
+            monster = new MonsterInfo(monsterKind);
+        } else if (boss == true) {
+            monster = new MonsterInfo("Dragon");
+        }
+
+        Util.println("\n--------------------");
+        Util.println("You encountered:", monster.getName(), "<"+monster.getKind()+">", "!");
+        Util.println("--------------------");
+        Util.println("\n\n\n\n\n\n");
+        Util.wait(2000);
+        Util.println("\n\n\n\n\n\n\n");
+        action.action(player, monster);
+    }
 
     // Currently it is two doors
     // the console cannot print overbar ‾
