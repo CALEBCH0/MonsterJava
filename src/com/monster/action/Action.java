@@ -19,15 +19,14 @@ public class Action {
 
             if (action.equals("a")) {
                 attack(player, monster);
-                heal(player, 10, 30);
                 if (deathCheck(player, monster) != 0) { break; }
             } else if (action.equals("d")) {
                 dodge(player, monster);
-                heal(player, 10, 30);
                 if (deathCheck(player, monster) != 0) { break; }
             }
             counterAttack(player, monster);
             if (deathCheck(player, monster) != 0) { break; }
+            heal(player, 10, 30);
         }
     }   
 
@@ -170,7 +169,7 @@ public class Action {
             monster.mSleep = false;
         } else {
             player.mHealth = player.getHealth() - monster.getStrength();
-            Util.println(monster.getName(), "dealt", monster.getStrength(), "to you!");
+            Util.println(monster.getName(), "dealt", "-"+monster.getStrength(), "to you!");
             player.status();
         }
         Util.println("--------------------");
@@ -180,6 +179,7 @@ public class Action {
     }
 
     public void heal(PlayerInfo player, int normalGen, int shieldGen) {
+        Util.println("\n\n")
         Util.println("--------------------");
         if (player.getRole().equals("Shieldsman")) {
             Util.println("End of turn. Regenerating health. +"+shieldGen);
@@ -196,16 +196,31 @@ public class Action {
 
     public int deathCheck(PlayerInfo player, MonsterInfo monster) {
         if (player.isDead()) {
+            Util.println("--------------------");
             Util.println("Game Over");
+            Util.println("--------------------");
+            Util.println("\n\n\n\n\n\n\n");
             Util.wait(1000); // 2000
+            Util.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             return 1;
         }
         if (monster.isDead()) {
+            Util.println("\n\n\n");
+            Util.println("--------------------");
             Util.println("Victory!");
-            if (monster.getName().equals("Dragon")) {
+            Util.println("--------------------");
+            if (monster.getKind().equals("Dragon")) {
+                Util.println("\n\n\n\n\n\n\n\n");
+                Util.wait(1000);
+                Util.println("--------------------");
                 Util.println("Game Clear!");
+                Util.println("--------------------");
             }
+            Util.println("\n\n\n\n\n");
             Util.wait(1000); // 2000
+            Util.println("\n\n\n\n\n");
+            if (!monster.getKind().equals("Dragon")) { heal(player, 10, 30); }
+            Util.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             return 2;
         }
         return 0;
