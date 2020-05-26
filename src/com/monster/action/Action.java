@@ -4,6 +4,7 @@ import com.monster.info.*;
 import com.monster.utils.Util;
 
 public class Action {
+    private int waitTime = 1000;
 
     public void action(PlayerInfo player, MonsterInfo monster) {
         char[] target = {'a', 'd'};
@@ -32,7 +33,7 @@ public class Action {
     
 
     public void attack(PlayerInfo player, MonsterInfo monster) {
-        Util.wait(1000);
+        Util.wait(waitTime);
         Util.println("----------------------------------------");
         switch(player.getRole()) {
             case "Swordmaster":
@@ -75,7 +76,7 @@ public class Action {
                     }
                 }
                 Util.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-                Util.wait(1000); // 2000
+                Util.wait(waitTime); // 2000
                 Util.println("----------------------------------------");
                 // Fireball
                 if (magic == 1) {
@@ -117,13 +118,13 @@ public class Action {
         }
         monster.status();
         Util.println("----------------------------------------");
-        Util.println("\n\n\n\n\n\n");
-        Util.wait(1000); // 2000
+        Util.println("\n\n\n\n\n");
+        Util.wait(waitTime); // 2000
         Util.println("\n\n\n\n\n\n\n\n\n");
     }
 
     public void dodge(PlayerInfo player, MonsterInfo monster) {
-        Util.wait(1000);
+        Util.wait(waitTime);
         Util.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         Util.println("----------------------------------------");
         Util.println("Trying to dodge...");
@@ -155,8 +156,8 @@ public class Action {
             }
         }
         Util.println("----------------------------------------");
-        Util.println("\n\n\n\n\n\n\n");
-        Util.wait(1000); // 2000
+        Util.println("\n\n\n\n\n");
+        Util.wait(waitTime); // 2000
         Util.println("\n\n\n\n\n\n\n\n\n\n\n"); 
     }
 
@@ -177,8 +178,8 @@ public class Action {
             player.status();
         }
         Util.println("----------------------------------------");
-        Util.println("\n\n\n\n\n\n");
-        Util.wait(1000); // 2000
+        Util.println("\n\n\n\n\n");
+        Util.wait(waitTime); // 2000
         Util.println("\n\n\n\n\n\n");
     }
 
@@ -193,8 +194,8 @@ public class Action {
             player.mHealth = player.getHealth() + normalGen;
         }
         Util.println("----------------------------------------");
-        Util.println("\n\n\n\n\n\n\n");
-        Util.wait(1000); // 2000
+        Util.println("\n\n\n\n\n");
+        Util.wait(waitTime); // 2000
         Util.println("\n\n\n\n\n\n\n\n\n\n\n");
     }
 
@@ -203,8 +204,8 @@ public class Action {
             Util.println("----------------------------------------");
             Util.println("               Game Over                ");
             Util.println("----------------------------------------");
-            Util.println("\n\n\n\n\n\n\n");
-            Util.wait(1000); // 2000
+            Util.println("\n\n\n\n\n");
+            Util.wait(waitTime); // 2000
             Util.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             return 1;
         }
@@ -215,13 +216,13 @@ public class Action {
             Util.println("----------------------------------------");
             if (monster.getKind().equals("Dragon")) {
                 Util.println("\n\n\n\n\n\n\n\n");
-                Util.wait(1000);
+                Util.wait(waitTime);
                 Util.println("----------------------------------------");
                 Util.println("              Game Clear!               ");
                 Util.println("----------------------------------------");
             }
             Util.println("\n\n\n\n\n");
-            Util.wait(1000); // 2000
+            Util.wait(waitTime); // 2000
             Util.println("\n\n\n\n\n");
             if (!monster.getKind().equals("Dragon")) { heal(player, 10, 30); }
             Util.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");

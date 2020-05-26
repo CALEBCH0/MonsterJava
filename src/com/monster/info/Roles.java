@@ -11,13 +11,13 @@ public class Roles {
         // high attack, moderate health 
         if (roleNumber.equals("1")) {
             mRoleName = "Swordmaster";
-            mHealth = 120;
-            mStrength = 20;
+            mHealth = 130;
+            mStrength = 30;
             mShield = 10;
         // high attack, low health, uses magic
         } else if (roleNumber.equals("2")) {
             mRoleName = "Mage";
-            mHealth = 100;
+            mHealth = 110;
             mStrength = 50;
             mShield = 20;
         // high health, low attack, heal regen round

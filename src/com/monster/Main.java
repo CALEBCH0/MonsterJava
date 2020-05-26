@@ -28,7 +28,7 @@ public class Main {
         Util.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             Util.println(" <<<<<<<<<<<<<<<<<<<<< Monster RPG >>>>>>>>>>>>>>>>>>>>>>>> ");
             Util.println("\n\n\n\n\n\n\n");
-            Util.wait(2000);
+            Util.wait(1000);
             Util.println("____________________________________________________________");
             for (int i = 0; i < 15; i++) {
             Util.println("|              Adjust the window to this box               |");
@@ -74,7 +74,7 @@ public class Main {
                 Util.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                 Util.print("exiting");
                 for (int i = 0; i < 3; i++) {
-                    Util.wait(1000);
+                    Util.wait(500);
                     Util.print(".");
                 }
                 Util.wait(1000);

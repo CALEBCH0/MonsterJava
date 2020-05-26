@@ -10,10 +10,12 @@ import com.monster.action.Action;
 
 //TODO: In the future maybe have a grid-shaped map
 public class Map {
-    Scanner mScanner = new Scanner(System.in);
-    MonsterInfo monster;
-    Action action = new Action();
-    Vector<Integer> mCurrentPosition = new Vector<Integer>(3);
+    private Scanner mScanner = new Scanner(System.in);
+    private MonsterInfo monster;
+    private Action action = new Action();
+    private Vector<Integer> mCurrentPosition = new Vector<Integer>(3);
+    private int waitTime1 = 800;
+    private int waitTime2 = 1300;
     
     public void move(PlayerInfo player) {
         Util.println("\n\n\n\n\n\n\n\n");
@@ -34,15 +36,15 @@ public class Map {
         }
 
         if (mCurrentPosition.size() == 3) {
-            Util.wait(1000);
+            Util.wait(waitTime1);
             Util.println("----------------------------------------");
             Util.println("           Entering Boss Room!          ");
             Util.println("----------------------------------------");
-            Util.println("\n\n\n\n\n\n\n");
-            Util.wait(2000);
+            Util.println("\n\n\n\n\n");
+            Util.wait(waitTime2);
             encounter(player, true);
         } else {
-            Util.wait(1000);
+            Util.wait(waitTime1);
             encounter(player, false);
         }
     }
@@ -80,7 +82,7 @@ public class Map {
         Util.println("You encountered:", monster.getName(), "<"+monster.getKind()+">", "!");
         Util.println("----------------------------------------");
         Util.println("\n\n\n\n\n\n");
-        Util.wait(2000);
+        Util.wait(waitTime2);
         Util.println("\n\n\n\n\n\n\n");
         action.action(player, monster);
     }
