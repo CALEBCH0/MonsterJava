@@ -25,13 +25,16 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        Util.println("");
+        Util.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            Util.println(" <<<<<<<<<<<<<<<<<<<<< Monster RPG >>>>>>>>>>>>>>>>>>>>>>>> ");
+            Util.println("\n\n\n\n\n\n\n");
+            Util.wait(2000);
             Util.println("____________________________________________________________");
             for (int i = 0; i < 15; i++) {
             Util.println("|              Adjust the window to this box               |");
             }
             Util.println("|__________________________________________________________|");
-        Util.print("When adjusting is done, press ant key to continue: ");
+        Util.print("When adjusting is done, press enter to continue: ");
         String adjust = scanner.nextLine();
 
         boolean gameOver = false;

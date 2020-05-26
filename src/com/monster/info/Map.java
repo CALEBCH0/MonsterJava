@@ -35,9 +35,9 @@ public class Map {
 
         if (mCurrentPosition.size() == 3) {
             Util.wait(1000);
-            Util.println("--------------------");
-            Util.println("Entering Boss Room!");
-            Util.println("--------------------");
+            Util.println("----------------------------------------");
+            Util.println("           Entering Boss Room!          ");
+            Util.println("----------------------------------------");
             Util.println("\n\n\n\n\n\n\n");
             Util.wait(2000);
             encounter(player, true);
@@ -46,42 +46,6 @@ public class Map {
             encounter(player, false);
         }
     }
-
-    // public void encounter(PlayerInfo player, boolean boss) {
-    //     if (boss == false) {
-    //         if (mCurrentPosition.get(0) == 1) {
-    //             if (mCurrentPosition.lastIndexOf(mCurrentPosition.lastElement()) > 0) {
-    //                 if (mCurrentPosition.get(1) == 1) {
-    //                     monster = new MonsterInfo("Spider");
-    //                 } else if (mCurrentPosition.get(1) == 2) {
-    //                     monster = new MonsterInfo("Orc");  
-    //                 }
-    //             } else {
-    //                 monster = new MonsterInfo("Slime");
-    //             }
-    //         } else if (mCurrentPosition.get(0) == 2) {
-    //             if (mCurrentPosition.lastIndexOf(mCurrentPosition.lastElement()) > 0) {
-    //                 if (mCurrentPosition.get(1) == 1) {
-    //                     monster = new MonsterInfo("Orc");
-    //                 } else if (mCurrentPosition.get(1) == 2) {
-    //                     monster = new MonsterInfo("Ogre");
-    //                 }
-    //             } else {
-    //                 monster = new MonsterInfo("Spider");
-    //             }
-    //         }
-    //     } else if (boss == true) {
-    //         monster = new MonsterInfo("Dragon");
-    //     }
-
-    //     Util.println("--------------------");
-    //     Util.println("You encountered:", monster.getName(), "<"+monster.getKind()+">", "!");
-    //     Util.println("--------------------");
-    //     Util.println("\n\n\n\n\n\n\n");
-    //     Util.wait(2000);
-    //     Util.println("\n\n\n\n\n\n\n");
-    //     action.action(player, monster);
-    // }
 
     public void encounter(PlayerInfo player, boolean boss) {
         String monsterKind = "";
@@ -112,9 +76,9 @@ public class Map {
             monster = new MonsterInfo("Dragon");
         }
 
-        Util.println("\n--------------------");
+        Util.println("\n----------------------------------------");
         Util.println("You encountered:", monster.getName(), "<"+monster.getKind()+">", "!");
-        Util.println("--------------------");
+        Util.println("----------------------------------------");
         Util.println("\n\n\n\n\n\n");
         Util.wait(2000);
         Util.println("\n\n\n\n\n\n\n");
@@ -132,6 +96,7 @@ public class Map {
         Util.println(" |_________|     |_________| ");
         Util.println("                             ");
         Util.println(" <----------     ----------> ");
+        Util.println("                             ");
     }
 
     public Vector<Integer> getPosition() {
